@@ -15,10 +15,14 @@ int main()
 			phonebook.start();
 		else if (str == "SHOW")
 			phonebook.show();
+		else if (str == "ADD")
+			phonebook.add();
 		else if (str == "EXIT")
-		{
-			std::cout << "END" << std::endl;
 			res = false;
+		else
+		{
+			std::cout << ">UNKNOWN COMMAMD" << std::endl;
+			std::cout << "Retry with \"ADD\" \"SHOW\" or \"EXIT\"" << std::endl;
 		}
 	}
 	return 0;

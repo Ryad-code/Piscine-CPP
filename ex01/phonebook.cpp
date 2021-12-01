@@ -1,43 +1,49 @@
 #include "phonebook.hpp"
-/*
-Phonebook::Phonebook()
-{
-	this->nb = 0;
-}
 
-Phonebook::~Phonebook()
-{
-}
-*/
 void	Phonebook::start(void)
 {
-	std::string str;
-
-	str = "RYAD";
-	this->nb = 1;
-	this->c0 = str;
+	this->index = 0;
+	std::cout << ">STARTING PHONEBOOK" << std::endl;
+	std::cout << "Number of contatcs : ";
+	std::cout << this->index << std::endl;
 }
-
-/*void	Phonebook::show(void)
-{
-	int i;
-
-	i = 0;
-	while (i < this->nb)
-	{
-		std::cout << this->tab[i] << std::endl;
-		i++;
-	}
-}*/
 
 void	Phonebook::show(void)
 {
-	std::cout << this->c0 << std::endl;
-	std::cout << this->c1 << std::endl;
-	std::cout << this->c2 << std::endl;
-	std::cout << this->c3 << std::endl;
-	std::cout << this->c4 << std::endl;
-	std::cout << this->c5 << std::endl;
-	std::cout << this->c6 << std::endl;
-	std::cout << this->c7 << std::endl;
+	Contact contact;
+	int i;
+
+	i = 0;
+	if (this->index == 0)
+		std::cout << ">EMPTY PHONEBOOK" << std::endl;
+	else
+		std::cout << "|-------------------------------------------|" << std::endl;
+		std::cout << "|    ID    |FISRT NAME|LAST NAME | NICKNAME |" << std::endl;
+		while (i < this->index)
+		{
+			contact = this->contacts[i];
+			contact.show();
+			i++;
+		}
+		std::cout << "|-------------------------------------------|" << std::endl;
+}
+
+void	Phonebook::search(void)
+{
+	
+}
+
+void	Phonebook::add(void)
+{
+	Contact contact;
+
+	if (this->index == 7)
+		std::cout << "THE PHONEBOOK IS FULL" << std::endl;
+	else
+	{
+		contact.add(this->index);
+		this->contacts[index] = contact;
+		this->index++;
+	}
+
 }
