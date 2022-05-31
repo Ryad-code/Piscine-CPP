@@ -9,6 +9,7 @@ class Phonebook
 		Contact	contacts[8];
 		int	index;
 		bool	full;
+		bool	empty;
 
 	public:
 		void	phonebook(void);

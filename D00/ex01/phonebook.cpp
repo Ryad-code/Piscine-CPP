@@ -2,8 +2,9 @@
 
 void	Phonebook::phonebook(void)
 {
-	this->index = 1;
+	this->index = 0;
 	this->full = false;
+	this->empty = true;
 	std::cout << "> STARTING PHONEBOOK" << std::endl;
 }
 
@@ -16,12 +17,14 @@ int	Phonebook::search()
 	int	id;
 	bool	valid_id;
 
-	i = 1;
+	i = 0;
 	valid_id = 0;
-	if (this->full == false)
+	if (this->empty == true)
+		j = 0;
+	else if (this->empty == false && this->full == false)
 		j = this->index;
-	else
-		j = 9;
+	else if (this->full == true)
+		j = 8;
 	std::cout << "|-------------------------------------------|" << std::endl;
 	std::cout << "|    ID    |FISRT NAME|LAST NAME | NICKNAME |" << std::endl;
 	while (i < j)
@@ -30,24 +33,26 @@ int	Phonebook::search()
 		contact.show();
 		i++;
 	}
-	std::cout << "|-------------------------------------------|" << std::endl;
-	std::cout << " SELECT ID" << std::endl << ">";
-	std::getline(std::cin, str);
-	valid_id = (str.find_first_not_of( "0123456789" ) == std::string::npos);
-	if (valid_id == 0)
+	if (this->empty == false)
 	{
-		std::cout << "WRONG ID" << std::endl;
-		return (1);
+		std::cout << "|-------------------------------------------|" << std::endl;
+		std::cout << " SELECT ID" << std::endl << ">";
+		std::getline(std::cin, str);
+		valid_id = (str.find_first_not_of( "0123456789" ) == std::string::npos);
+		if (valid_id == 0 || str.empty())
+		{
+			std::cout << "WRONG ID" << std::endl;
+			return (1);
+		}
+		id = std::stoi(str, NULL, 10);
+		if ((this->full == false && (id < 0 || id > j - 1)) || (this->full == true && (id < 0 || id > 8)))
+			std::cout << "WRONG ID" << std::endl;
+		else
+		{	
+			contact = this->contacts[id];
+			contact.show();
+		}
 	}
-	std::cout << valid_id << std::endl;
-	id = std::stoi(str, NULL, 10);
-	if (id >= 0 && id <= j)
-	{
-		contact = this->contacts[id];
-		contact.show();
-	}
-	else
-		std::cout << "WRONG ID" << std::endl;
 	return (0);
 }
 
@@ -57,6 +62,7 @@ void	Phonebook::add(void)
 	int	res;
 
 	res = 1;
+	this->empty = false;
 	while (res == 1)
 		res = contact.add(this->index);
 	this->contacts[this->index] = contact;
