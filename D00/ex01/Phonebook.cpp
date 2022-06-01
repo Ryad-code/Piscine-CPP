@@ -37,8 +37,14 @@ int	Phonebook::search()
 	{
 		std::cout << "|-------------------------------------------|" << std::endl;
 		std::cout << " SELECT ID" << std::endl << ">";
-		std::getline(std::cin, str);
-		valid_id = (str.find_first_not_of( "0123456789" ) == std::string::npos);
+		if (!std::getline(std::cin, str))
+		{
+			std::cout << "WRONG ID" << std::endl;
+			return (1);
+		}
+		if (std::cin)
+			valid_id = (str.find_first_not_of( "0123456789" ) == std::string::npos);
+		else
 		if (valid_id == 0 || str.empty())
 		{
 			std::cout << "WRONG ID" << std::endl;

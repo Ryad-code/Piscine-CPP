@@ -5,6 +5,7 @@ int main(int ac, char **av)
 	Phonebook	phonebook;
 	std::string	str;
 	bool		res;
+	int		result;
 
 	(void)ac;
 	(void)av;
@@ -13,16 +14,23 @@ int main(int ac, char **av)
 	while (res)
 	{
 		std::cout << ">";
-		std::getline(std::cin, str);
-		if (str == "SEARCH")
-			phonebook.search();
-		else if (str == "ADD")
-			phonebook.add();
-		else if (str == "EXIT")
+		if (!std::getline(std::cin, str))
 		{
-			res = false;
-			std::cout << ">END" << std::endl;
+			std::cout << "ERROR" << std::endl;
+			break;
 		}
+		else
+		{
+			if (str == "SEARCH")
+				phonebook.search();
+			else if (str == "ADD")
+				phonebook.add();
+			else if (str == "EXIT")
+			{
+				res = false;
+				std::cout << ">END" << std::endl;
+			}
+		}
+		str.clear();
 	}
-	return (0);
 }

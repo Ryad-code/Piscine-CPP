@@ -6,19 +6,24 @@ int	Contact::add(int id)
 
 	this->id = id;
 	std::cout << "> FIRST NAME: ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		return (-1);
 	this->first_name = str;
 	std::cout << "> LAST_NAME: ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		return (-1);
 	this->last_name = str;
 	std::cout << "> NICKNAME: ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		return (-1);
 	this->nickname = str;
 	std::cout << "> PHONE NUMBER: ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		return (-1);
 	this->phone_number = str;
 	std::cout << "> DARKEST SECRET: ";
-	std::getline(std::cin, str);
+	if (!std::getline(std::cin, str))
+		return (-1);
 	this->darkest_secret = str;
 	if (this->first_name.empty() || this->last_name.empty() || this->nickname.empty() ||
 			this->phone_number.empty() || this->darkest_secret.empty())
