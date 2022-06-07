@@ -1,13 +1,15 @@
-#include "weapon/weapon.cpp"
-#include "humanA/humanA.cpp"
-#include "humanB/humanB.cpp"
+#include "weapon/Weapon.hpp"
+#include "humanA/HumanA.hpp"
+#include "humanB/HumanB.hpp"
 
-int main(int ac, char ** av)
+int main()
 {
-	HumanA amine("Amine", "Big belly");
+	Weapon arme1("couteau");
+	Weapon arme2("hache");
+	HumanA amine("Amine", arme1);
 	HumanB ryad("Steamade");
 
-	ryad.setWeapon("Baguette de Torkelonia");
+	ryad.setWeapon(arme2);
 	amine.attack();
 	ryad.attack();
 
