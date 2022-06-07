@@ -1,4 +1,4 @@
-#include "karen.hpp"
+#include "Karen.hpp"
 
 Karen::Karen(void)
 {
@@ -40,38 +40,13 @@ void	Karen::complain(std::string level)
 {
 	int i;
 
-	i = Karen::index(level);
-	switch(i)
-	{
-		case 0:
-			(this->*array[0])();
-			break;
-		case 1:
-			(this->*array[1])();
-			break;
-		case 2:
-			(this->*array[2])();
-			break;
-		case 3:
-			(this->*array[3])();
-			break;
-		case -1:
-			std::cout << "Karen still talking shit" << std::endl;
-			break;
-
-	}
-}
-
-int	Karen::index(std::string level)
-{
-	int	i;
-
 	i = 0;
 	while (i < 4)
 	{
 		if (level == this->levels[i])
-			return (i);
+		{
+			(this->*array[i])();
+		}
 		i++;
 	}
-	return (-1);
 }

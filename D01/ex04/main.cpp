@@ -22,6 +22,11 @@ int main(int ac, char **av)
 	s1 = av[2];				
 	s2 = av[3];
 	std::ifstream flux(av[1]);		//ifstream->Ouverture pour lecture
+	if (s1.empty())
+	{
+		std::cout << "Error: wrong input" << std::endl;
+		return 1;
+	}
 	if (!flux.good())
 	{
 		std::cout << "Error: invalid file" << std::endl;
