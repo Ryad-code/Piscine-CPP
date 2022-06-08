@@ -1,6 +1,6 @@
 NAME = BraiiiiiiinnnzzzZ
 
-CC = clang++
+CC = c++
 
 SRCS = main.cpp Zombie.cpp ZombieHorde.cpp
 
