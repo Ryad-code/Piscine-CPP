@@ -20,7 +20,8 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& obj)
 {
-	*this = obj;	
+	*this = obj;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
