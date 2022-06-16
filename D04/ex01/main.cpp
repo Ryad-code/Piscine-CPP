@@ -4,19 +4,13 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Dog* j = new Dog();
+//	const Animal* i = new Cat();
 
-	Animal	test(*j);
+	Dog	dog(*j);
 
-	Animal	*test1 = new Dog();
-
-	test.makeSound();
-	std::cout << test.getType() << std::endl;
-	test1->makeSound();
-	std::cout << test1->getType() << std::endl;
 	delete j;//should not create a leak
-	delete i;
+//	delete i;
 	
 	return 0;
 }

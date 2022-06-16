@@ -15,6 +15,8 @@ class Cat : public Animal
 
 		void	makeSound(void) const;
 		void	getCatIdeas(void) const;
+
+		Cat&    operator=(const Cat& obj);
 };
 
 #endif

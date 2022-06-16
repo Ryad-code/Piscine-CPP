@@ -9,7 +9,7 @@ Cat::Cat(void)
 
 Cat::Cat(const Cat& obj)
 {
-	*this = obj;
+	this->cat_brain = new Brain(*obj.cat_brain);
 	std::cout << "Copy constructor called! (Cat)" << std::endl;
 }
 
@@ -27,4 +27,15 @@ void	Cat::makeSound(void) const
 void	Cat::getCatIdeas(void) const
 {
 	this->cat_brain->getIdeas();
+}
+
+Cat&    Cat::operator=(const Cat& obj)
+{
+	if (this != &obj)
+	{
+		delete this->cat_brain;
+		this->cat_brain = new Brain(*obj.cat_brain);
+	}
+	return *this;
+
 }

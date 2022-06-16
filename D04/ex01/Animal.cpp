@@ -26,3 +26,9 @@ std::string	Animal::getType(void) const
 {
 	return this->type;
 }
+
+Animal&	Animal::operator=(const Animal& obj)
+{
+	this->type = obj.type;
+	return *this;
+}
