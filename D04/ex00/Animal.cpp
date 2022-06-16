@@ -2,14 +2,8 @@
 
 Animal::Animal(void)
 {
-	this->type = "";
+	this->type = "Animal";
 	std::cout << "Default constructor called! (Animal)" << std::endl;
-}
-
-Animal::Animal(std::string type)
-{
-	this->type = type;
-	std::cout << this->type << " is born! (Animal)" << std::endl;
 }
 
 Animal::Animal(const Animal& obj)
@@ -23,7 +17,13 @@ Animal::~Animal(void)
 	std::cout << "Destructor called! (Animal)" << std::endl;
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << this->type << " made a sound!" << std::endl;
+}
+
+std::string	Animal::getType(void) const
+{
+//	std::cout << "type = " << this->type << std::endl;
+	return this->type;
 }

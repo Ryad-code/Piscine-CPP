@@ -7,11 +7,11 @@ class Dog : public Animal
 {
 	public:
 		Dog(void);
-		Dog(std::string type);
+//		Dog(std::string type);
 		Dog(const Dog& obj);
 		~Dog(void);
 
-		void	makeSound(void);
+		void	makeSound(void) const;
 };
 
 #endif

@@ -2,14 +2,8 @@
 
 Cat::Cat(void)
 {
-	this->type = "";
+	this->type = "Cat";
 	std::cout << "Default constructor called! (Cat)" << std::endl;
-}
-
-Cat::Cat(std::string type)
-{
-	this->type = type;
-	std::cout << this->type << " is born! (Cat)" << std::endl;
 }
 
 Cat::Cat(const Cat& obj)
@@ -23,7 +17,7 @@ Cat::~Cat(void)
 	std::cout << "Destructor called! (Cat)" << std::endl;
 }
 
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
 	std::cout << this->type << ": Miaou Miaou!" << std::endl;
 }

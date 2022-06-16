@@ -13,9 +13,10 @@ class Animal
 		Animal(void);
 		Animal(std::string type);
 		Animal(const Animal& obj);
-		~Animal(void);
+		virtual ~Animal(void);
 
-		void	makeSound(void);
+		virtual void		makeSound(void) const;
+		virtual std::string	getType(void) const;
 };
 
 #endif
