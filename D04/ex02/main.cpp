@@ -4,10 +4,10 @@
 
 int main()
 {
-	const Dog* j = new Dog();
+	const Animal* j = new Dog();
 //	const Animal* i = new Cat();
 
-	Dog	dog = *j;
+//	Animal	dog = *j;
 
 	delete j;//should not create a leak
 //	delete i;
