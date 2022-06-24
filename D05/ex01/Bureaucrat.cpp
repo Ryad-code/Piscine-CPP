@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor called! (Bureaucrat)" << std::endl;
+//	std::cout << "Destructor called! (Bureaucrat)" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const

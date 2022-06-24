@@ -21,7 +21,7 @@ Form::Form(const Form& obj): name(obj.name), s_grade(obj.s_grade), e_grade(obj.e
 
 Form::~Form(void)
 {
-	std::cout << "Destructor called! (Form)" << std::endl;
+//	std::cout << "Destructor called! (Form)" << std::endl;
 }
 
 Form&   Form::operator=(const Form& obj)
@@ -55,6 +55,8 @@ void	Form::beSigned(Bureaucrat& obj)
 	std::cout << obj.getName() << " is trying to sign " << this->getName() << std::endl;
 	if (obj.getGrade() > this->getS_grade())
 	       throw Form::GradeTooLowException();
+	else if (this->sign == true)
+		throw Form::FormSignedException();
 	else
 	{
 		this->sign = true;
