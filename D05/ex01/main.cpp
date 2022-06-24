@@ -1,19 +1,27 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-//	Bureaucrat Ryad;
-//	Bureaucrat amine("amine", 250);
 	try
 	{
-		Bureaucrat amine("amine", 250);
+		Bureaucrat amine("amine", 149);
+		Form    form1("form1", 10, 10);
+
+		std::cout << form1 << std::endl;
+		form1.beSigned(amine);
 	}
 	catch(std::exception & error)
 	{
 		std::cout << error.what() << std::endl;
 	}
 
-//	std::cout << Ryad << std::endl;
+//	Bureaucrat amine("amine", 149);
+//	Form    form1("form1", 10, 10);
+//	std::cout << form1 << std::endl;
+
+//	form1.beSigned(amine);
+
 //	std::cout << amine << std::endl;
 
 	return 0;

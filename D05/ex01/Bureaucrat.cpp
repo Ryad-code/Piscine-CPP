@@ -35,6 +35,19 @@ int	Bureaucrat::getGrade(void) const
 	return this->grade;
 }
 
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << *this << " signs " << form << std::endl;
+	}
+	catch (std::exception & error)
+	{
+		std::cerr << *this << " cannot sign " << form << " because : " << error.what() <<  std::endl;
+	}
+}
+
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj)
 {
 	if (this != &obj)

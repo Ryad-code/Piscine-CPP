@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
 
 class Bureaucrat
 {
@@ -36,10 +38,12 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& obj);
 		~Bureaucrat(void);
 
+		Bureaucrat&     operator=(const Bureaucrat& obj);
+
 		std::string	getName(void) const;
 		int		getGrade(void) const;
 
-		Bureaucrat&	operator=(const Bureaucrat& obj);
+		void	signForm(Form& form);
 };
 
 std::ostream &			operator<<(std::ostream& o, const Bureaucrat& obj);

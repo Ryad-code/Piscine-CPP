@@ -3,6 +3,8 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
@@ -40,12 +42,20 @@ class Form
 		};
 
 		Form(void);
-		Form(std::string name, int s_grade, int e_grade);
+		Form(std::string nname, int ns_grade, int ne_grade);
 		Form(const Form& obj);
 		~Form(void);
 
 		Form&	operator=(const Form& obj);
 
+		std::string	getName(void) const;
+		int		getS_grade(void) const;
+		int		getE_grade(void) const;
+		bool		getSign(void) const;
+
+		void		beSigned(Bureaucrat& obj);
 };
+
+std::ostream&	operator<<(std::ostream& o, const Form& obj);
 
 #endif

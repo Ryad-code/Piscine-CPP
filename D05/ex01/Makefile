@@ -2,9 +2,9 @@ NAME = Bureaucrat
 
 CC = c++
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
-INC = Bureaucrat.hpp
+INC = Bureaucrat.hpp Form.hpp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
