@@ -63,14 +63,12 @@ void	Form::beSigned(Bureaucrat& obj)
 	else if (obj.getGrade() > this->getS_grade())
 	       throw Form::GradeTooLowException();
 	else
-	{
 		this->sign = true;
-		std::cout << this->getName() << " has been signed by " << obj.getName() << std::endl;
-	}
 }
 
 void	Form::execute(const Bureaucrat& obj) const
 {
+	std::cout << obj << " is trying to execute " << *this << std::endl;
 	if (this->sign == false)
 		throw Form::FormNotSignedException();
 	else if (obj.getGrade() > this->getE_grade())

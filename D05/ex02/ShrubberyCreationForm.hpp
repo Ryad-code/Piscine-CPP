@@ -1,6 +1,7 @@
 #ifndef SHRUBERRYCREATIONFORM_HPP
 #define SHRUBERRYCREATIONFORM_HPP
 
+#include <fstream>
 #include "Form.hpp"
 
 class	ShrubberyCreationForm : public Form

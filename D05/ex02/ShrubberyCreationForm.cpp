@@ -32,5 +32,21 @@ ShrubberyCreationForm&   ShrubberyCreationForm::operator=(const ShrubberyCreatio
 
 void	ShrubberyCreationForm::executeForm(void) const
 {
-	std::cout << "ARBRE" << std::endl;
+	std::string filename = this->target;
+	std::ofstream flux(filename.c_str());
+	flux << "     _\\/_          _\\/_     " << std::endl;
+    	flux << "      /\\            /\\      " << std::endl;
+	flux << "      /\\            /\\      " << std::endl;
+    	flux << "     /  \\          /  \\     " << std::endl;
+    	flux << "     /~~\\o         /~~\\o     " << std::endl;
+	flux << "    /o   \\        /o   \\     " << std::endl;
+	flux << "   /~~*~~~\\      /~~*~~~\\    " << std::endl;
+	flux << "  o/    o \\     o/    o \\    " << std::endl;
+	flux << "  /~~~~~~~~\\~`  /~~~~~~~~\\~` " << std::endl;
+	flux << " /__*_______\\  /__*_______\\  " << std::endl;
+	flux << "      ||            ||       " << std::endl;
+	flux << "    \\====/        \\====/     " << std::endl;
+	flux << "     \\__/          \\__/      " << std::endl;
+	flux << "Big trees incoming!" << std::endl;
+	flux.close();
 }

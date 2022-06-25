@@ -31,5 +31,13 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 void	RobotomyRequestForm::executeForm(void) const
 {
-	std::cout << "ROBOT" << std::endl;
+	int i;
+
+	srand(time(0));
+	i = rand() % 2;
+	if (i == 1)
+		std::cout << this->target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << this->target << " has not been robotomized successfully!" << std::endl;
+
 }

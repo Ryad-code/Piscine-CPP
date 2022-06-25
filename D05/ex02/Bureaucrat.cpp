@@ -48,6 +48,18 @@ void	Bureaucrat::signForm(Form& form)
 	}
 }
 
+void	Bureaucrat::executeForm(const Form& form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception & error)
+	{
+		std::cerr << *this << " cannot execute " << form << " because : " << error.what() <<  std::endl;
+	}
+}
+
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj)
 {
 	if (this != &obj)

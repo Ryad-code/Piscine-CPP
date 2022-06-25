@@ -1,6 +1,8 @@
 #ifndef ROBOTMYREQUESTFORM_HPP
 #define ROBOTMYREQUESTFORM_HPP
 
+#include <stdlib.h>
+#include <time.h>
 #include "Form.hpp"
 
 class RobotomyRequestForm : public Form
