@@ -8,22 +8,19 @@ int main()
 {
 	try
 	{
-		Bureaucrat amine("amine", 130);
-//		Form    form1("form1", 10, 10);
+		Bureaucrat amine("amine", 1);
 	
-//		std::cout << form1 << std::endl;
-//		form1.beSigned(amine);
-//		amine.signForm(form1);
 
 		Form	*form0 = new ShrubberyCreationForm("test.txt");
-//		Form	*form1 = new RobotomyRequestForm("test.txt");
-//		Form	*form2 = new PresidentPardonForm("test.txt");
+		Form	*form1 = new RobotomyRequestForm("test.txt");
+		Form	*form2 = new PresidentPardonForm("test.txt");
 
 		amine.signForm(*form0);
-//		amine.signForm(*form1);
-//		amine.signForm(*form2);
-//		form0->execute(amine);
+		amine.signForm(*form1);
+		amine.signForm(*form2);
 		amine.executeForm(*form0);
+		amine.executeForm(*form1);
+		amine.executeForm(*form2);
 	}
 	catch(std::exception & error)
 	{

@@ -2,19 +2,16 @@
 
 int main()
 {
-//	Bureaucrat Ryad;
-//	Bureaucrat amine("amine", 250);
 	try
 	{
-		Bureaucrat amine("amine", 250);
+		Bureaucrat amine("amine", 2);
+		std::cout << amine << std::endl;
+		amine.upGrade();
+		std::cout << amine << std::endl;
 	}
 	catch(std::exception & error)
 	{
 		std::cout << error.what() << std::endl;
 	}
-
-//	std::cout << Ryad << std::endl;
-//	std::cout << amine << std::endl;
-
 	return 0;
 }

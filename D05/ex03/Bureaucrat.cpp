@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor called! (Bureaucrat)" << std::endl;
+//	std::cout << "Destructor called! (Bureaucrat)" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const
@@ -35,20 +35,29 @@ int	Bureaucrat::getGrade(void) const
 	return this->grade;
 }
 
-void	Bureaucrat::upGrade(void)
+void	Bureaucrat::signForm(Form& form)
 {
-	if (this->grade == 1)
-		throw Bureaucrat::GradeTooHighException();
-	else
-		this->grade--;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << *this << " signs " << form << std::endl;
+	}
+	catch (std::exception & error)
+	{
+		std::cerr << *this << " cannot sign " << form << " because : " << error.what() <<  std::endl;
+	}
 }
 
-void	Bureaucrat::downGrade(void)
+void	Bureaucrat::executeForm(const Form& form)
 {
-	if (this->grade == 150)
-		throw Bureaucrat::GradeTooLowException();
-	else
-		this->grade++;
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception & error)
+	{
+		std::cerr << *this << " cannot execute " << form << " because : " << error.what() <<  std::endl;
+	}
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj)
