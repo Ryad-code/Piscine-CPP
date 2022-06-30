@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include "Span.hpp"
 
+#define GR "\033[1;32m"
+#define YEL "\033[1;33m"
+#define BLUE "\033[1;3;34m"
+#define NOR "\033[m"
+
 int		random(int min, int max) //range : [min, max]
 {
 	static bool first = true;
@@ -16,43 +21,108 @@ int		random(int min, int max) //range : [min, max]
 
 int main()
 {
-	Span	obj(10);
+	std::cout << GR << "====== SUBJECT MAIN TEST ======" << NOR << std::endl << std::endl;
+	try {
 
-	try
-	{	
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-		obj.addNumber(random(0, 100));
-	//	obj.addNumber(random(0, 100));
+		Span sp = Span(5);
+		sp.addNumber(5);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		sp.display();
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl << std::endl;
 
-		obj.display();
 	}
-	catch (const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
+	catch (std::exception & e) { std::cout << e.what() << std::endl; }
+	std::cout << GR << "====== RANDOM ADDRANGE TEST ======" << NOR << std::endl << std::endl;
+	try {
+		std::vector<int> vec;
+		Span	sp2(10);
+		for (int i(0); i < 20; i++) {
+			vec.push_back(random(1, 100));
+		}
+		std::cout << "VECTOR : ";
+		for (int i(0); i < 20; i++) {
+			std::cout << vec.at(i) << ", ";
+		}
+		std::cout << std::endl;
+		sp2.addRangeIt(vec.begin(), vec.end());
+		std::cout << "SPAN : ";
+		sp2.display();
+		std::cout << "shortest span : " << sp2.shortestSpan() << std::endl;
+		std::cout << "longest span : " << sp2.longestSpan() << std::endl << std::endl;
 	}
+	catch (std::exception & e) { std::cout << e.what() << std::endl; }
+/*	std::cout << GR << "====== COPY AND ASSIGNATION TEST ======" << NOR << std::endl << std::endl;
+	try {
+		Span sp3 = Span(5);
+		sp3.addNumber(5);
+		sp3.addNumber(3);
+		sp3.addNumber(17);
+		sp3.addNumber(9);
+		sp3.addNumber(11);
+		std::cout << "SPAN 3: ";
+		sp3.display();
+		Span sp4(sp3);
+		std::cout << "SPAN 4: ";
+		sp4.display();
+		Span sp5(2);
+		sp5 = sp4;
+		std::cout << "SPAN 5: ";
+		sp5.display();
+		std::cout << "shortest span sp4 : " << sp4.shortestSpan() << std::endl;
+		std::cout << "shortest span sp5 : " << sp5.shortestSpan() << std::endl;
+		std::cout << "longest span sp4 : " << sp4.longestSpan() << std::endl;
+		std::cout << "longest span sp5 : " << sp5.longestSpan() << std::endl << std::endl;
 
-	std::cout << "Min = " << obj.shortestSpan() << std::endl;
-	std::cout << "Max = " << obj.longestSpan() << std::endl;
-
-/*	std::vector<int> tab;
-
-	for (int i = 0; i != 10; i++)
-	{
-		tab.push_back(i);
 	}
+	catch (std::exception & e) { std::cout << e.what() << std::endl; }
+	std::cout << GR << "====== MORE THAN 10000 TEST ======" << NOR << std::endl << std::endl;
+	try {
+		std::vector<int> vec;
+		Span	sp2(20000);
+		for (int i(0); i < 22000; i++) {
+			vec.push_back(random(0, 100000));
+		}
+		sp2.addRangeIt(vec.begin(), vec.end());
+		std::sort(vec.begin(), vec.end());
+		std::cout << "Shortest value : " << vec.at(0) << " , Longest value : " << vec.at(21999) << std::endl;
+		std::cout << BLUE << "You can uncomment 2 lines in the main to print the array" << NOR << std::endl;
+//		std::cout << "SPAN : ";
+//		sp2.printTab(); //I PUT THIS LINE IN COMMENTARY TO NOT SHOW A 20000 INTS VECTOR AND MAKE THE MAIN VISIBLE
+		std::cout << "shortest span : " << sp2.shortestSpan() << std::endl;
+		std::cout << "longest span : " << sp2.longestSpan() << std::endl << std::endl;
+	}
+	catch (std::exception & e) { std::cout << e.what() << std::endl; }
+	std::cout << GR << "====== SPAN WITH ONLY 1 INT ======" << NOR << std::endl << std::endl;
+	try {
 
-	for (std::vector<int>::iterator it = ; it != obj.tab.end(); it++)
-	{
-		std::cout << *it << std::endl;
-	}*/
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.display();
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+	}
+	catch (std::exception & e) { std::cout << e.what() << std::endl << std::endl; }
+	std::cout << GR << "====== ADD MORE INT THAN SIZE ======" << NOR << std::endl << std::endl;
+	try {
+
+		Span sp = Span(5);
+		sp.addNumber(0);
+		sp.addNumber(1);
+		sp.addNumber(2);
+		sp.addNumber(3);
+		sp.addNumber(4);
+		sp.addNumber(5);
+		sp.display();
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+	}
+	catch (std::exception & e) { std::cout << e.what() << std::endl << std::endl; }*/
 
 	return 0;
 }

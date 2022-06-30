@@ -1,5 +1,4 @@
 #include "Span.hpp"
-#include <algorithm>
 
 Span::Span(void)
 {
@@ -79,3 +78,14 @@ void	Span::display(void)
                 std::cout << *it << std::endl;
         }
 }
+
+void		Span::addRangeIt(std::vector<int>::iterator first, std::vector<int>::iterator last)
+{
+	unsigned int i = 0;
+	while (first != last && i < this->size) {
+		this->addNumber(*first);
+		first++;
+		i++;
+	}
+}
+

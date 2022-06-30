@@ -4,6 +4,7 @@
 # include <vector>
 # include <iterator>
 # include <iostream>
+#include <algorithm>
 
 class Span
 {
@@ -22,6 +23,7 @@ class Span
 		void		addNumber(int value);
 		int		shortestSpan(void);
 		int		longestSpan(void);
+		void		addRangeIt(std::vector<int>::iterator first, std::vector<int>::iterator last);
 		void		display(void);
 
 		class	VectorIsFull : public std::exception
