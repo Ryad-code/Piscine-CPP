@@ -21,7 +21,7 @@ class Span
 
 		void		addNumber(int value);
 		int		shortestSpan(void);
-//		int		longestSpan(void);
+		int		longestSpan(void);
 		void		display(void);
 
 		class	VectorIsFull : public std::exception

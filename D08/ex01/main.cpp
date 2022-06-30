@@ -1,24 +1,46 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <stdlib.h>
 #include "Span.hpp"
+
+int		random(int min, int max) //range : [min, max]
+{
+	static bool first = true;
+	if (first) {
+		srand( time(NULL) );
+		first = false;
+	}
+	return min + rand() % (( max + 1 ) - min);
+}
 
 int main()
 {
 	Span	obj(10);
-	
-	obj.addNumber(0);
-	obj.addNumber(1);
-	obj.addNumber(2);
-	obj.addNumber(3);
-	obj.addNumber(4);
-	obj.addNumber(5);
-	obj.addNumber(6);
-	obj.addNumber(7);
-	obj.addNumber(8);
-	obj.addNumber(9);
 
-	obj.display();
+	try
+	{	
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+		obj.addNumber(random(0, 100));
+	//	obj.addNumber(random(0, 100));
+
+		obj.display();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << "Min = " << obj.shortestSpan() << std::endl;
+	std::cout << "Max = " << obj.longestSpan() << std::endl;
 
 /*	std::vector<int> tab;
 

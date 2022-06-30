@@ -56,8 +56,19 @@ int	Span::shortestSpan(void)
 	{
 		std::vector<int>	tmp = this->tab;
 		std::sort( tmp.begin(), tmp.end());
-		std::cout << tmp.at(0) << std::endl;
 		return tmp.at(0);
+	}
+}
+
+int	Span::longestSpan(void)
+{
+	if (this->tab.size() < 2)
+                throw NotEnoughNumbers();
+	else
+	{
+		std::vector<int>        tmp = this->tab;
+		std::sort( tmp.begin(), tmp.end());
+		return tmp.at(tmp.size() - 1);
 	}
 }
 
